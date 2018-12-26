@@ -116,13 +116,12 @@ def getWuXing(bazi):
 
 
 def main():
-    # birthYear = input("please input your birth year: ")
-    # birthMonth = input("please input your birth month: ")
-    # birthDay = input("please input your birth day: ")
-    # birthTime = input("please input your birth time: ")
-    shenchenbazi = getShenChenBaZi(1986,4,12,4)
-    # shenchenbazi = getShenChenBaZi(
-    #     int(birthYear), int(birthMonth), int(birthDay), int(birthTime))
+    birthYear = input("please input your birth year: ")
+    birthMonth = input("please input your birth month: ")
+    birthDay = input("please input your birth day: ")
+    birthTime = input("please input your birth time: ")
+#   shenchenbazi = getShenChenBaZi(1986,4,12,4)
+    shenchenbazi = getShenChenBaZi(int(birthYear), int(birthMonth), int(birthDay), int(birthTime))
     print("你的生辰八字是: %s" % (shenchenbazi))
     wuxing = getWuXing(shenchenbazi)
     print("您的生辰八字五行指数为金：%.2f,木：%.2f,水：%.2f,火：%.2f,土:%.2f" % (wuxing))
@@ -136,9 +135,9 @@ def main():
         lackingWuxings.append(wuxingNames[minIndex])
     wuxingCharacters = []
     for lackingWuxing in lackingWuxings:
-        lackingWuxingCharacters = wuxingData.Dic.get(lackingWuxing)
+        lackingWuxingCharacters = wuxingData.wuxingDic.get(lackingWuxing)
         if lackingWuxingCharacters:
-            wuxingCharacters.extend(wuxingData.Dic.get(lackingWuxing))
+            wuxingCharacters.extend(wuxingData.wuxingDic.get(lackingWuxing))
     return wuxingCharacters
 
 if __name__ == '__main__':

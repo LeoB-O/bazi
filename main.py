@@ -6,10 +6,11 @@ import random
 def main():
     print("main")
     wuxingCharacters = set(metaphysic.main())
-    print("Characters got by your shenchenbazi: ")
+    print("\nLet's get a name for your baby.\nCharacters got by your shenchenbazi: ")
     print(wuxingCharacters)
 
-    desiredCharacters = set(list(readDic.main()))
+    wish = input("\nLet's get a name for your baby.\nInput your wish(One Chinese Character:")
+    desiredCharacters = set(list(readDic.main(wish)))
     print("Characters got by your wish: ")
     print(desiredCharacters)
 
@@ -23,6 +24,7 @@ def main():
     finalResult = desiredCharacters & desiredCharacters & genderCharacters
     print('Final result: ')
     print(finalResult)
+    print(genderCharacters)
     finalResultList = list(finalResult)
     finalName = finalResultList[random.randint(0, len(finalResultList))] + finalResultList[random.randint(0, len(finalResultList))]
     print('Test name: ')
